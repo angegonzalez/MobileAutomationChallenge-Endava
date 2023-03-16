@@ -10,19 +10,24 @@ import org.openqa.selenium.By;
 
 public class MovieScreen extends BaseScreen{
 
-    By txtMovie = By.id("com.imdb.mobile:id/title");
+    By txtMovieTitle = By.id("com.imdb.mobile:id/title");
     By txtAddWatchList= By.id("com.imdb.mobile:id/state_off");
     By btnProfile = By.xpath("//android.widget.FrameLayout[@content-desc='You']");
     By btnRate = By.id("com.imdb.mobile:id/empty_rating_star");
     By txtSavedMessage = By.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"]");
-
+    By txtTitleOverview = By.id("com.imdb.mobile:id/plot_overview");
 
     public MovieScreen(AppiumDriver driver) {
         super(driver);
     }
 
     public String getMovieTitle(){
-        return mapToElement(txtMovie).getText();
+        waitForElementPresence(txtMovieTitle);
+        return mapToElement(txtMovieTitle).getText();
+    }
+    public String getMovieOverview(){
+        waitForElementPresence(txtTitleOverview);
+        return mapToElement(txtTitleOverview).getText();
     }
     public MovieScreen addToWatchList(){
         waitForElementPresence(txtAddWatchList);

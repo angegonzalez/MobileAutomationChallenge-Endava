@@ -14,7 +14,6 @@ import java.util.Random;
 
 public class SearchScreen extends BaseScreen {
     By txtSearch = By.className("android.widget.AutoCompleteTextView");
-    By lstSearch = By.xpath("//android.widget.LinearLayout[@resource-id=\"com.imdb.mobile:id/holder\"]");
     By lstNames = By.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/suggestion\"]");
     By txtTopMovies = By.xpath("//android.widget.TextView[@text=\"Top 250 movies\"]");
     By movies = By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.imdb.mobile:id/list\"]/android.widget.LinearLayout");
@@ -30,17 +29,17 @@ public class SearchScreen extends BaseScreen {
         return this;
     }
     public MovieScreen selectFirstMovie(){
-        waitForElementPresence(lstSearch);
-        mapToElements(lstSearch).get(0).click();
+        waitForElementPresence(lstNames);
+        mapToElements(lstNames).get(0).click();
         return new MovieScreen(driver);
     }
     public String selectAnyMovie(){
-        waitForElementPresence(lstSearch);
-        List<WebElement> webElements = mapToElements(lstSearch);
+        waitForElementPresence(lstNames);
+        List<WebElement> webElements = mapToElements(lstNames);
         Random random = new Random();
         int selectedIndex = random.ints(0, webElements.size()).findFirst().getAsInt();
         String movieTitle = mapToElements(lstNames).get(selectedIndex).getText();
-        webElements.get(selectedIndex).click();
+        tapElement(webElements.get(selectedIndex));
         return movieTitle;
     }
 

@@ -38,9 +38,11 @@ public class SearchMovie {
     public void userSelectsFirstResult(){
         movieScreen = searchScreen.selectFirstMovie();
     }
-    @Then("the overview must match with an existing overviewed text")
-    public void overviewMatching(){
-        String movieTitle = movieScreen.getMovieTitle() + "test";
+    @Then("the overview {string} must match with an existing overviewed text")
+    public void overviewMatching(String overview){
+        String movieTitle = movieScreen.getMovieTitle() + "intentionalFailure";
+        String titleOverview = movieScreen.getMovieOverview();
         Assertions.assertThat(this.movie).isEqualTo(movieTitle);
+        Assertions.assertThat(titleOverview).isEqualTo(overview);
     }
 }

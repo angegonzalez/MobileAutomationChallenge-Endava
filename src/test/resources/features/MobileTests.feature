@@ -1,12 +1,16 @@
 Feature: Test different flows of the IMDB Android APP
 
   @search
-  Scenario: User search for a movie
+  Scenario Outline: User search for a movie
     Given the user is in the main page of the app
     And the user skips the login process
     When the user searches for the movie "Finding Nemo"
     And the user selects the first result
-    Then the overview must match with an existing overviewed text
+    Then the overview "<overview>" must match with an existing overviewed text
+
+    Examples:
+      | overview                                                                                                                           |
+      | After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.|
 
   @watch_list
   Scenario: User adds a movie to a watch list
