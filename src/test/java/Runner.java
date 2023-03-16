@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/resources/features"},
         glue = {"/stepdefs", "/common"},
         plugin = {"pretty", "json:target/cucumber/cucumber.json"},
-        tags = ""
+        tags = "@trailers"
 )
 public class Runner extends AbstractTestNGCucumberTests {
 }

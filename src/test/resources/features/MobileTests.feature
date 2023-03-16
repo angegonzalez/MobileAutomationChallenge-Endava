@@ -23,3 +23,11 @@ Feature: Test different flows of the IMDB Android APP
     And the user searches for a movie
     When user rates the selected movie
     Then the message "Rating saved" is displayed to the user
+
+  @trailers
+  Scenario: User wants to see alphabetical-ordered the popular movies
+    Given the user is logged into the app
+    And the user goes to the video section
+    And the user sees all popular trailers
+    When the user sorts trailers alphabetically
+    Then trailers are sorted alphabetically
