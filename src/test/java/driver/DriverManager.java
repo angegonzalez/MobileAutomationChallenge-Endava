@@ -34,6 +34,7 @@ public class DriverManager {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, properties.getProperty("DEVICE_NAME"));
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, properties.getProperty("AUTOMATION_NAME"));
+        capabilities.setCapability("autoGrantPermissions", true);
 
         URL localhost;
 

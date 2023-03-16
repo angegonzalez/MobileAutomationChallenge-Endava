@@ -40,7 +40,7 @@ public class SearchMovie {
     }
     @Then("the overview must match with an existing overviewed text")
     public void overviewMatching(){
-        String movieTitle = movieScreen.getMovieTitle();
+        String movieTitle = movieScreen.getMovieTitle() + "test";
         Assertions.assertThat(this.movie).isEqualTo(movieTitle);
     }
 }
