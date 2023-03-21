@@ -23,7 +23,7 @@ public class RatingScreen extends BaseScreen {
         waitForElementPresence(stars);
         List<WebElement> webElement = mapToElements(stars);
         Random random = new Random();
-        int selectedIndex = random.ints(0, webElement.size()).findFirst().getAsInt();
+        int selectedIndex = random.ints(1, 6).findFirst().getAsInt();
         tapElement(webElement.get(selectedIndex));
         waitForElementPresence(btnRate);
         tapElement(mapToElement(btnRate));

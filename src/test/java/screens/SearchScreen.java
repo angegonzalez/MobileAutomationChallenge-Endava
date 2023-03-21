@@ -49,7 +49,7 @@ public class SearchScreen extends BaseScreen {
         waitForElementPresence(movies);
         List<WebElement> webElement = mapToElements(movies);
         Random random = new Random();
-        int selectedIndex = random.ints(0, webElement.size()).findFirst().getAsInt();
+        int selectedIndex = random.ints(7, webElement.size()).findFirst().getAsInt();
         webElement.get(selectedIndex).click();
         return new MovieScreen(driver);
     }
